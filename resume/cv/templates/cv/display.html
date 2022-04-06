@@ -1,0 +1,42 @@
+{% extends "cv/base.html" %}
+
+{% block content %}
+
+
+{% if data %}
+<h2 style="text-align:center;">Resume</h2>
+<hr>
+<div style="text-align:center;">
+	<h2 >{{ data.name }}</h2>
+<tr>
+	<td>{{ data.mobile }} |</td>
+	<td>{{ data.email }}</td>
+</tr>
+<hr>
+
+<h3>About</h3>
+<p>{{ data.about }}</p>
+<hr>
+
+<h3>Edataucation</h3>
+<p>School:{{ data.school }}</p>
+<p>degree:{{ data.degree }}</p>	
+<hr>
+
+<h3>Skill</h3>
+<p>{{ data.skill }}</p>
+
+<hr>
+<h3>project</h3>
+<p>{{ data.project }}</p>
+
+<hr>
+<h3>Experience</h3>
+<p>{{ data.previous_work }}</p>
+
+<h3>Others</h3>
+<p>{{ data.certification }}</p>
+
+{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "cv/base.html" %}
+
+{% block content %}
+
+<!-- 
+<p>Create your resume by clicking create resume button<button style="margin-left: 20%;"><a href="create/">Create Resume</a></button></p> -->
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if data|length == 0 %}
+<p>create resume</p>
+
+{% else %}
+{% for d in data %}
+		<ul style="margin-top:5%;">
+			<li>{{ d.name }}
+			<button style="margin-left:6%;"><a href="display/{{ d.id }}">Show</a></button>
+			<button style="margin-left:1%;"><a href="edit/{{ d.id }}">Edit</a></button>
+			<button style="margin-left:1%;"><a href="delete/{{ d.id }}">Delete</a></button>
+			<button style="margin-left:1%;"><a href="{{ d.id }}">Download</a></button>
+			</li>
+		</ul>
+{% endfor %}
+	
+	
+
+{% endif %}
+
+{% endblock content %}
